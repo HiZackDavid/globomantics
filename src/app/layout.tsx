@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
+import Link from "next/link";
+import styles from "./rootStyle.module.css";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -18,7 +20,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${openSans.className}`}>{children}</body>
+      <body className={`${openSans.className}`}>
+        <header className={`${styles.header}`}>
+          <h1>
+            <Link className={`${styles.homeLink}`} href="/home">
+              Globomantics
+            </Link>
+          </h1>
+          <h3>
+            <Link className={`${styles.menuBarLink}`} href="/blog">
+              Blog
+            </Link>
+          </h3>
+          <h3>
+            <Link className={`${styles.menuBarLink}`} href="/settings">
+              Settings
+            </Link>
+          </h3>
+          <h3>
+            <Link className={`${styles.menuBarLink}`} href="/conference">
+              Conference
+            </Link>
+          </h3>
+        </header>
+
+        {children}
+      </body>
     </html>
   );
 }

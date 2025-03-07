@@ -1,4 +1,12 @@
-header {
+.homeLink {
+  text-decoration: none;
+  color: #fff;
+}
+.menuBarLink {
+  text-decoration: none;
+  color: #bdfef2;
+}
+.header {
   width: 100%;
   padding: 50px 0px 50px;
   background-color: #212121;
