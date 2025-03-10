@@ -1,15 +1,15 @@
 import Link from "next/link";
 import styles from "../conference.module.css";
 
-type SpeakerSessionData = {
+type Session = {
   id: number;
   name: string;
 };
 
-type SpeakerData = {
+type Speaker = {
   id: string;
   bio: string;
-  sessions: SpeakerSessionData[];
+  sessions: Session[];
   name: string;
 };
 
@@ -49,7 +49,7 @@ const SpeakersPage = async () => {
         Last Rendered: {new Date().toLocaleTimeString()}
       </div>
       <h1>Welcome to Globomantics Speakers</h1>
-      {data.speakers.map(({ id, name, bio }: SpeakerData) => (
+      {data.speakers.map(({ id, name, bio }: Speaker) => (
         <div key={id} className={styles.infoContainer}>
           <Link
             href={`/conference/speakers/${btoa(id)}`}

@@ -1,17 +1,17 @@
 import styles from "../conference.module.css";
 
-type SpeakerData = {
+type Speaker = {
   id: string;
   name: string;
 };
 
-type SessionData = {
+type Session = {
   id: number;
   title: string;
   description: string;
   startsAt: string;
   endsAt: string;
-  speakers: SpeakerData[];
+  speakers: Speaker[];
   room: string;
   day: string;
   format: string;
@@ -43,19 +43,11 @@ const SessionsPage = async () => {
       </div>
       <h1>Welcome to Globomantics Sessions</h1>
       {data.sessions.map(
-        ({
-          id,
-          title,
-          description,
-          room,
-          day,
-          track,
-          speakers,
-        }: SessionData) => (
+        ({ id, title, description, room, day, track, speakers }: Session) => (
           <div key={id} className={styles.infoContainer}>
             <h3 className={styles.titleText}>{title}</h3>
             {speakers &&
-              speakers.map(({ name, id }: SpeakerData) => (
+              speakers.map(({ name, id }: Speaker) => (
                 <h3 key={id} className={styles.titleText}>
                   Speaker: {name}
                 </h3>
