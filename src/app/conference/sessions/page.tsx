@@ -36,8 +36,6 @@ async function fetchSessions() {
 const SessionsPage = async () => {
   const data = await fetchSessions();
 
-  console.log(data);
-
   return (
     <div className={styles.parentContainer}>
       <div className="self-start whitespace-nowrap rounded-lg bg-gray-700 px-3 py-1 text-sm font-medium tabular-nums text-gray-100">
